@@ -53,7 +53,9 @@ public class ToDoActivity extends Activity {
     /**
      * Table used to access data from the mobile app backend.
      */
-    private MobileServiceTable<ToDoItem> mToDoTable;
+    private MobileServiceTable<COACH> mCoachTable;
+    private MobileServiceTable<PLAYER> mPlayerTable;
+    private MobileServiceTable<UNIVERSITY> mUniversityTable;
 
     //Offline Sync
     /**
@@ -107,7 +109,7 @@ public class ToDoActivity extends Activity {
             });
 
             // Get the remote table instance to use.
-            mToDoTable = mClient.getTable(ToDoItem.class);
+            mCoachTable = mClient.getTable(COACH.class);
 
             // Offline sync table instance.
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
@@ -159,7 +161,7 @@ public class ToDoActivity extends Activity {
      * @param item
      *            The item to mark
      */
-    public void checkItem(final ToDoItem item) {
+    public void checkItem(final COACH item) {
         if (mClient == null) {
             return;
         }
