@@ -20,17 +20,37 @@ public class PLAYER {
     @com.google.gson.annotations.SerializedName("Lname")
     private String mLname;
 
+    @com.google.gson.annotations.SerializedName("Address")
+    private String mAddress;
+
     @com.google.gson.annotations.SerializedName("City")
     private String mCity;
+
+    @com.google.gson.annotations.SerializedName("Zipcode")
+    private Integer mZipcode;
 
     @com.google.gson.annotations.SerializedName("Country")
     private String mCountry;
 
-    @com.google.gson.annotations.SerializedName("Runiversity")
-    private String mRuniversity;
+    @com.google.gson.annotations.SerializedName("NationalRanking")
+    private String mNationalRanking;
 
-    @com.google.gson.annotations.SerializedName("Rpassword")
-    private String mRpassword;
+    @com.google.gson.annotations.SerializedName("UTR")
+    private String mUTR;
+
+    @com.google.gson.annotations.SerializedName("Team")
+    private String mTeam;
+
+    @com.google.gson.annotations.SerializedName("Award")
+    private String mAward;
+
+    @com.google.gson.annotations.SerializedName("Email")
+    private String mEmail;
+
+    @com.google.gson.annotations.SerializedName("Phone")
+    private Integer mPhone;
+
+
     /**
      * Indicates if the item is completed
      */
@@ -40,13 +60,13 @@ public class PLAYER {
     /**
      * ToDoItem constructor
      */
-    public COACH() {
+    public PLAYER() {
 
     }
 
     @Override
     public String toString() {
-        return getRFname();
+        return getFname();
     }
 
     /**
@@ -57,7 +77,7 @@ public class PLAYER {
      * @param id
      *            The item id
      */
-    public COACH(String RFname, String id, String RLname, Integer RphoneNumber, String Remail, String Runiversity, String Rpassword) {
+    public COACH(String id, String mFname, String mLname, Integer RphoneNumber, String Remail, String Runiversity, String Rpassword) {
         this.setRFname(RFname);
         this.setId(id);
         this.setRLname(RLname);
@@ -70,9 +90,7 @@ public class PLAYER {
     /**
      * Returns the item text
      */
-    public String getRFname() {
-        return mRFname;
-    }
+    public String getFname() { return mFname; }
 
     /**
      * Sets the item text
