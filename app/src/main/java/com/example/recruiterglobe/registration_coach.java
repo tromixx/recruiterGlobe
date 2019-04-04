@@ -69,7 +69,13 @@ public class registration_coach extends Activity {
     /**
      * EditText containing the "New To Do" text
      */
-    private EditText mTextNewToDo;
+    private EditText mRFnameNewCOACH;
+    private EditText mRLnameNewCOACH;
+    private EditText mRphoneNewCOACH;
+    private EditText mREmailNewCOACH;
+    private EditText mRpasswordNewCOACH;
+    private EditText mRComfirmPasswordNewCOACH;
+    private EditText mRuniversityNewCOACH;
 
     /**
      * Progress spinner to use for table operations
@@ -115,7 +121,14 @@ public class registration_coach extends Activity {
             //Init local storage
             initLocalStore().get();
 
-            mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+            mRFnameNewCOACH = (EditText) findViewById(R.id.RFname);
+            mRLnameNewCOACH = (EditText) findViewById(R.id.RLname);
+            mRphoneNewCOACH = (EditText) findViewById(R.id.Rphone);
+            mREmailNewCOACH = (EditText) findViewById(R.id.REmail);
+            mRpasswordNewCOACH = (EditText) findViewById(R.id.Rpassword);
+            mRComfirmPasswordNewCOACH = (EditText) findViewById(R.id.RConfirmPassword);
+            mRuniversityNewCOACH = (EditText) findViewById(R.id.Runiversity);
+
 
 
             // Load the items from the mobile app backend.
@@ -155,7 +168,7 @@ public class registration_coach extends Activity {
      * @param item
      *            The item to mark
      */
-    public void checkItem(final COACH item) {
+    /*public void checkItem(final COACH item) {
         if (mClient == null) {
             return;
         }
@@ -187,7 +200,7 @@ public class registration_coach extends Activity {
 
         runAsyncTask(task);
 
-    }
+    }*/
 
     /**
      * Mark an item as completed in the Mobile Service Table
@@ -195,9 +208,9 @@ public class registration_coach extends Activity {
      * @param item
      *            The item to mark
      */
-    public void checkItemInTable(COACH item) throws ExecutionException, InterruptedException {
+    /*public void checkItemInTable(COACH item) throws ExecutionException, InterruptedException {
         COACH.update(item).get();
-    }
+    }*/
 
     /**
      * Add a new item
@@ -213,7 +226,12 @@ public class registration_coach extends Activity {
         // Create a new item
         final COACH item = new COACH();
 
-        item.setText(mTextNewToDo.getText().toString());
+        item.setRFname(mRFnameNewCOACH.getText().toString());
+        item.setRLname(mRLnameNewCOACH.getText().toString());
+        item.setRphoneNumber(Integer.parseInt(mRphoneNewCOACH.getText().toString()));
+        item.setRemail(mREmailNewCOACH.getText().toString());
+        item.setRpassword(mRphoneNewCOACH.getText().toString());
+        item.setRuniversity(mRuniversityNewCOACH.getText().toString());
         item.setComplete(false);
 
         // Insert the new item
@@ -221,7 +239,7 @@ public class registration_coach extends Activity {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final ToDoItem entity = addItemInTable(item);
+                    final COACH entity = addItemInTable(item);
 
                     runOnUiThread(new Runnable() {
                         @Override
